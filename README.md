@@ -2,7 +2,7 @@
 
 **120 original, Chinese-language prompt templates for research, deep learning, image creation, personal agents and product validation.** Each template includes input variables, a complete example, intended output, scope and limitations.
 
-The templates were authored for this collection with AI assistance; they were not copied from external prompt collections. **All templates are untested with models.** Catalog and link validation does not establish output quality. Copy a template into a suitable assistant; file reading, image generation and tool execution depend on your chosen platform.
+**All templates are untested with models.** Catalog and link validation does not establish output quality. Copy a template into a suitable assistant; file reading, image generation and tool execution depend on your chosen platform.
 
 ## Choose a task
 
@@ -44,6 +44,6 @@ python3 tools/catalog.py check
 
 Validation covers category counts, unique IDs/titles/templates, matching variables and examples, provenance, untested status, generated-page consistency, local links and English README text. **It does not evaluate prompt effectiveness.** The current catalog contains eight categories with 15 templates each.
 
-## License and provenance
+## License
 
-Original templates, documentation and maintenance scripts are available under the [MIT License](LICENSE). The license does not grant rights to third-party papers, images, datasets, models or trademarks. Example data and fictional references are illustrative, not research evidence. Each entry records its original provenance and untested status.
+[MIT](LICENSE). Example data and fictional references are illustrative, not research evidence.
