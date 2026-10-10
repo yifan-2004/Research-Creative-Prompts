@@ -92,19 +92,26 @@ def cell(text):
     return text.replace('|', '\\|').replace('\n', ' ')
 
 
+def english_label(slug):
+    terms = {'3d': '3D', 'api': 'API', 'cli': 'CLI', 'rag': 'RAG', 'mvp': 'MVP'}
+    return ' '.join(terms.get(word, word.capitalize()) for word in slug.split('-'))
+
+
 def generate(entries):
     files = {}
     for category, (zh, en) in CATEGORIES.items():
         selected = [entry for entry in entries if entry['category'] == category]
         rows = '\n'.join(
-            f'| {index:02} | [{entry["title"]}]({entry["slug"]}.md) | {cell(entry["suitability"])} |'
+            f'| {index:02} | [{english_label(entry["slug"])}]({entry["slug"]}.md) |'
             for index, entry in enumerate(selected, 1)
         )
         files[Path('prompts') / category / 'README.md'] = (
-            f'# {zh}\n\n{en} · 15 条原创模板 · 全部待验证\n\n'
-            '[返回总目录](../../README.md)\n\n'
-            '按任务选一条，填写 `{{变量}}` 后复制使用。每条页面包含示例与使用边界。\n\n'
-            '| # | 模板 | 适用任务 |\n| --- | --- | --- |\n' + rows + '\n'
+            f'# {en}\n\n15 original, Chinese-language templates · All untested with models\n\n'
+            '[Back to the main catalog](../../README.md)\n\n'
+            'Choose a task, replace each `{{variable}}` with your materials, and copy the template. '
+            'Individual prompt pages remain in Chinese and include examples, intended outputs, '
+            'scope, limitations and provenance.\n\n'
+            '| # | Template |\n| --- | --- |\n' + rows + '\n'
         )
         for entry in selected:
             variables = '\n'.join(
@@ -148,6 +155,16 @@ def check_links():
     return checked
 
 
+def check_english_readmes():
+    documents = [ROOT / 'README.md'] + [ROOT / 'prompts' / category / 'README.md'
+                                      for category in CATEGORIES]
+    for document in documents:
+        text = document.read_text(encoding='utf-8')
+        require(not re.search(r'[\u3400-\u9fff]', text),
+                f'{document}: README must use English; prompt pages may remain Chinese')
+    return len(documents)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['build', 'check'])
@@ -169,8 +186,9 @@ def main():
     actual = set((ROOT / 'prompts').rglob('*.md'))
     require(actual == expected, 'Unexpected or missing generated Markdown pages')
     links = check_links()
+    readmes = check_english_readmes()
     print(f'OK: {len(entries)} unique prompts; 8 categories × 15; '
-          f'{len(outputs)} generated pages; {links} local links; '
+          f'{len(outputs)} generated pages; {links} local links; {readmes} English READMEs; '
           'variables/examples/provenance/status consistent; all prompts untested.')
 
 

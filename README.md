@@ -1,53 +1,49 @@
 # Research & Creative Prompts
 
-**120 条中文原创提示词，覆盖科研、深度学习、图像创作、个人 Agent 与产品验证。** 每条都有填写变量、完整示例、预期输出和适用边界，按实际任务查找即可。
+**120 original, Chinese-language prompt templates for research, deep learning, image creation, personal agents and product validation.** Each template includes input variables, a complete example, intended output, scope and limitations.
 
-这些模板由 AI 辅助编写，未复制外部提示词。**全部尚未经过模型运行验证**；目录与链接检查通过不代表模型输出质量已验证。不需要安装应用；使用时将模板复制到支持相应输入的助手。模型服务、文件阅读、图片生成和工具执行由你使用的平台提供。
+The templates were authored for this collection with AI assistance; they were not copied from external prompt collections. **All templates are untested with models.** Catalog and link validation does not establish output quality. Copy a template into a suitable assistant; file reading, image generation and tool execution depend on your chosen platform.
 
-## 选择一个任务
+## Choose a task
 
-| 类别 | 数量 | 从这里开始 |
+| Category | Templates | Suggested starting points |
 | --- | --- | --- |
-| [科研选题与文献](prompts/research-literature/README.md) | 15 | [证据矩阵](prompts/research-literature/evidence-matrix.md)、[研究空白核查](prompts/research-literature/gap-validation.md) |
-| [论文写作与审稿回复](prompts/academic-writing/README.md) | 15 | [摘要](prompts/academic-writing/evidence-bound-abstract.md)、[审稿回复](prompts/academic-writing/reviewer-response.md) |
-| [深度学习实验](prompts/deep-learning/README.md) | 15 | [低照度评测](prompts/deep-learning/low-light-evaluation.md)、[单目 3D 检测检查](prompts/deep-learning/monocular-3d-review.md) |
-| [图像生成与编辑](prompts/image-generation/README.md) | 15 | [产品主视觉](prompts/image-generation/product-hero.md)、[局部编辑](prompts/image-generation/localized-edit.md) |
-| [科研图表与结果展示](prompts/scientific-figures/README.md) | 15 | [网络结构图](prompts/scientific-figures/architecture-spec.md)、[3D 框可视化](prompts/scientific-figures/3d-box-visualization.md) |
-| [编程与个人 Agent](prompts/coding-agents/README.md) | 15 | [知识库问答](prompts/coding-agents/rag-evidence-answer.md)、[助手记忆](prompts/coding-agents/personal-assistant-memory.md) |
-| [创业与产品验证](prompts/startup-product/README.md) | 15 | [MVP 范围](prompts/startup-product/mvp-scope.md)、[用户访谈](prompts/startup-product/interview-guide.md) |
-| [学习与技术表达](prompts/learning-communication/README.md) | 15 | [学习计划](prompts/learning-communication/study-plan.md)、[项目介绍](prompts/learning-communication/project-introduction.md) |
+| [Research & literature](prompts/research-literature/README.md) | 15 | [Evidence matrix](prompts/research-literature/evidence-matrix.md), [Research gap validation](prompts/research-literature/gap-validation.md) |
+| [Academic writing](prompts/academic-writing/README.md) | 15 | [Evidence-bound abstract](prompts/academic-writing/evidence-bound-abstract.md), [Reviewer response](prompts/academic-writing/reviewer-response.md) |
+| [Deep learning](prompts/deep-learning/README.md) | 15 | [Low-light evaluation](prompts/deep-learning/low-light-evaluation.md), [Monocular 3D review](prompts/deep-learning/monocular-3d-review.md) |
+| [Image generation](prompts/image-generation/README.md) | 15 | [Product hero image](prompts/image-generation/product-hero.md), [Localized editing](prompts/image-generation/localized-edit.md) |
+| [Scientific figures](prompts/scientific-figures/README.md) | 15 | [Architecture specification](prompts/scientific-figures/architecture-spec.md), [3D box visualization](prompts/scientific-figures/3d-box-visualization.md) |
+| [Coding & agents](prompts/coding-agents/README.md) | 15 | [Evidence-based knowledge-base answers](prompts/coding-agents/rag-evidence-answer.md), [Personal assistant memory](prompts/coding-agents/personal-assistant-memory.md) |
+| [Startup & product](prompts/startup-product/README.md) | 15 | [MVP scope](prompts/startup-product/mvp-scope.md), [User interview guide](prompts/startup-product/interview-guide.md) |
+| [Learning & communication](prompts/learning-communication/README.md) | 15 | [Study plan](prompts/learning-communication/study-plan.md), [Project introduction](prompts/learning-communication/project-introduction.md) |
 
-## 怎么用
+## How to use
 
-1. 打开一个模板，先看“适用与边界”。
-2. 把 `{{变量}}` 替换成你的真实材料；“示例输入”演示的是填写方式。
-3. 复制“复制模板”里的完整内容，按需附上文件或图片。
-4. 核对事实、引用、代码与结果；缺失证据就保留未知，不让模型补造。
+1. Open a template and read its scope and limitations.
+2. Replace the `{{variables}}` with your real materials. The example input demonstrates what to provide.
+3. Copy the complete template and attach any required files or reference images.
+4. Review facts, citations, code and results. Keep missing evidence explicit rather than asking the model to invent it.
 
-例如，在“低照度增强的分层评测”中填写自己的方法、配对/无配对数据和评测重点。模板会请求分别设计协议；无配对数据不会被要求报告无法计算的全参考 PSNR。这里描述的是模板目标，尚无实际模型输出验证。
+Prompt bodies, examples and individual prompt pages are in Chinese. Repository and category READMEs are in English. The templates are model-agnostic; use a model and platform that support the task and input language.
 
-图像生成类模板分为“让文字助手起草生成指令”和“将该指令交给图像工具”两步。图像编辑需要真实参考图；科研网络图需要真实结构；结果图与测试表格需要真实实验数据。
+For example, the low-light evaluation template asks for your methods, paired or unpaired datasets, and evaluation priorities. It requests separate protocols and avoids full-reference PSNR for unpaired data. This describes the intended behavior; it has not been verified through model runs.
 
-## 文件与维护
+Image-generation templates first ask a text assistant to draft instructions, which can then be passed to an image tool. Editing requires an actual reference image. Network diagrams require the real architecture. Result figures and performance tables require real experimental data.
 
-- [data/prompts.json](data/prompts.json)：120 条模板的唯一内容源，可用于搜索或程序集成。
-- [prompts/](prompts/)：按类别生成的可读页面；修改内容时编辑 JSON。
-- [tools/catalog.py](tools/catalog.py)：目录生成与一致性检查，Python 3.10+，只用标准库，无联网或模型调用。
-- [CONTRIBUTING.md](CONTRIBUTING.md)：新增、修改和验证方法。
+## Files and maintenance
+
+- [data/prompts.json](data/prompts.json): the content source for all 120 templates, suitable for search or programmatic use.
+- [prompts/](prompts/): generated category indexes and individual template pages; edit the JSON to change content.
+- [tools/catalog.py](tools/catalog.py): deterministic generation and validation, using Python 3.10+ and the standard library only. No network or model calls.
+- [CONTRIBUTING.md](CONTRIBUTING.md): contribution and verification guidance, currently in Chinese.
 
 ```bash
 python3 tools/catalog.py build
 python3 tools/catalog.py check
 ```
 
-检查范围：类别数量、唯一 ID/标题/正文、变量和示例对应、来源和待验证状态、生成页面一致性、本地链接。**这些检查不评价提示词的实际效果。**
+Validation covers category counts, unique IDs/titles/templates, matching variables and examples, provenance, untested status, generated-page consistency, local links and English README text. **It does not evaluate prompt effectiveness.** The current catalog contains eight categories with 15 templates each.
 
-## English
+## License and provenance
 
-120 original, Chinese-first prompt templates across eight practical categories. Every entry includes variables, a complete example input, intended output, scope, limitations, provenance and verification status. All prompts are **untested with models**. Replace the variables, provide your real materials, and review the output. The catalog validator checks structure and local links; it does not measure prompt quality.
-
-Templates are model-agnostic. File reading, image generation and agent actions require capabilities provided by your chosen platform. This repository does not call any model or send messages.
-
-## 许可
-
-本库原创模板、说明与维护脚本按 [MIT License](LICENSE) 发布。使用本库不会授予第三方论文、图片、数据、模型或商标的权利。示例中注明的演示数据与虚构条目仅用于说明，不能作为研究证据。
+Original templates, documentation and maintenance scripts are available under the [MIT License](LICENSE). The license does not grant rights to third-party papers, images, datasets, models or trademarks. Example data and fictional references are illustrative, not research evidence. Each entry records its original provenance and untested status.
